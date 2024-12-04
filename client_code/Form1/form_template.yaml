@@ -1,57 +1,45 @@
 components:
-- components:
-  - layout_properties: {grid_position: 'RCESNK,JDLMEG'}
-    name: image_logo
-    properties: {height: 129.75, source: _/theme/HTL_Rankweil_Bank_Logo.png}
-    type: Image
-  - layout_properties: {grid_position: 'RCESNK,IEZTMZ'}
-    name: label_1
-    properties: {align: center, bold: true, font_size: 40, text: Willkommen bei der HTL-Rankweil-Bank}
-    type: Label
-  - layout_properties: {grid_position: 'WNHBVL,FSBLLG'}
-    name: label_placeholder3
-    properties: {text: ' '}
-    type: Label
-  - layout_properties: {grid_position: 'SXGMJQ,AYVKKX'}
-    name: label_username
-    properties: {text: Benutzername}
-    type: Label
-  - layout_properties: {grid_position: 'SXGMJQ,AYVKKX JDVTVO,IUUNOH'}
-    name: text_box_username
-    properties: {text: ''}
-    type: TextBox
-  - layout_properties: {grid_position: 'SXGMJQ,AYVKKX KQZPMO,LHQZHO'}
-    name: label_password
-    properties: {text: Passwort}
-    type: Label
-  - layout_properties: {grid_position: 'SXGMJQ,AYVKKX HDCHES,SRBOEI'}
-    name: text_box_password
-    properties: {text: ''}
-    type: TextBox
-  - layout_properties: {grid_position: 'SXGMJQ,XEVCYU ISLQQP,RBZTWO'}
-    name: label_placeholder
-    properties: {text: ' '}
-    type: Label
-  - layout_properties: {grid_position: 'SXGMJQ,XEVCYU HNPHAJ,NRDKZO'}
-    name: check_box_secure
-    properties: {align: center, text: Gegen SQL-Injection sichern}
-    type: CheckBox
-  - layout_properties: {grid_position: 'SXGMJQ,XEVCYU EXDDIB,JWHFZS'}
-    name: label_placeholder2
-    properties: {text: ' '}
-    type: Label
-  - layout_properties: {grid_position: 'SXGMJQ,XEVCYU QDGENI,ZAPVIA'}
-    name: button_login
-    properties: {role: outlined-button, text: Einloggen}
-    type: Button
-  layout_properties: {slot: default}
-  name: content_panel
-  properties: {col_widths: '{}'}
-  type: ColumnPanel
 - layout_properties: {slot: nav-right}
   name: navbar_links
   properties: {}
   type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'UIZTDQ,HDUUWW'}
+    name: image_logo
+    properties: {height: 129.75, source: _/theme/HTL_Rankweil_Bank_Logo.png}
+    type: Image
+  - layout_properties: {grid_position: 'GZZGIM,DZRKKI'}
+    name: label_1
+    properties: {align: center, bold: true, font_size: 40, text: Willkommen bei der HTL-Rankweil-Bank}
+    type: Label
+  - layout_properties: {grid_position: 'EVRMMK,METBLF'}
+    name: label_username
+    properties: {text: E-Mail}
+    type: Label
+  - layout_properties: {grid_position: 'VHJKBD,UKZWOD'}
+    name: text_box_email
+    properties: {text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'VHJKBD,PTEUIE'}
+    name: check_box_secure
+    properties: {align: center, text: Gegen SQL-Injection sichern}
+    type: CheckBox
+  - layout_properties: {grid_position: 'FBWOIW,VLHCPR'}
+    name: label_password
+    properties: {text: Passwort}
+    type: Label
+  - layout_properties: {grid_position: 'PNLALX,FTKMFT'}
+    name: text_box_password
+    properties: {text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'PNLALX,UEOBEG'}
+    name: button_login
+    properties: {align: center, role: outlined-button, text: Einloggen}
+    type: Button
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"UKZWOD":40,"PTEUIE":20,"FTKMFT":40,"UEOBEG":20}'}
+  type: ColumnPanel
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate
