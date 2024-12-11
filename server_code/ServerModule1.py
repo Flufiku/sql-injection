@@ -1,5 +1,10 @@
+import anvil.files
+from anvil.files import data_files
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
-
+import sqlite3
 
 # @anvil.server.callable
 # def say_hello(name):
@@ -9,9 +14,8 @@ import anvil.server
 
 @anvil.server.callable
 def get_account_number(email, password):
-  conn = sqlite3.connect(data_files['gefaengnis.db'])
+  conn = sqlite3.connect(data_files['database.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute("SELECT Name FROM Gefaengnis"))
-  new_res = [(item[0], item[0]) for item in res]
+  res = list(cursor.execute(f"SELECT UserID FROM User WHERE Email = '{email}' AND Password = '{password}'"))
   conn.close()
-  return new_res
+  return res
