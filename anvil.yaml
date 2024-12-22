@@ -23,8 +23,8 @@ dependencies:
 - dep_id: dep_n4e1y7a808yf4
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {version_tag: v3.1.0}
-name: SQLI_Injection
-package_name: SQLI_Injection
+name: SQL_Injection
+package_name: SQL_Injection
 renamed: true
 runtime_options:
   client_version: '3'

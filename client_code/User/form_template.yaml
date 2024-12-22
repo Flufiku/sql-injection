@@ -12,6 +12,11 @@ components:
   name: navbar_links
   properties: {}
   type: FlowPanel
+- event_bindings: {mouse_down: image_logo_mouse_down}
+  layout_properties: {slot: title}
+  name: image_logo
+  properties: {height: 91.88888549804688, source: _/theme/HTL_Rankweil_Bank_Logo.png}
+  type: Image
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

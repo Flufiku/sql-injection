@@ -25,13 +25,17 @@ class Login(LoginTemplate):
       self.label_output.text = "; ist kein gültiges Zeichen."
     elif (not email_empty) and (not password_empty):
       try:
-        acc_nums = anvil.server.call('get_account_number',email, password)
-        if acc_nums == []:
+        if self.check_box_secure.checked:
+          UserIDs = anvil.server.call('get_UserID_secure',email, password)
+        else:
+          UserIDs = anvil.server.call('get_UserID',email, password)
+          
+        if UserIDs == []:
           self.label_output.text = "E-Mail oder Passwort ist ungültig"
         else:
-          print(acc_nums)
-          UserID_Dict = {'UserID': acc_nums}
-          routing.set_url_hash(url_pattern='second', url_dict=UserID_Dict)
+          self.label_output.text = UserIDs
+          UserID_Dict = {'s': self.check_box_secure.checked,'UserID': UserIDs[0][0]}
+          routing.set_url_hash(url_pattern='User', url_dict=UserID_Dict)
         #tom.wagner@gmail.com
         #8lZH5Ox#
       except Exception as e:
