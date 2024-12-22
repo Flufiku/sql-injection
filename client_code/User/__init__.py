@@ -4,16 +4,16 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil_extras import routing
 
-
+@routing.route('User', url_keys=[routing.ANY])
 class User(UserTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    http_get_dict = routing.get_url_dict()
 
-    # Any code you write here will run before the form opens.
-    query_params = anvil.routing.get_url_hash()
-    self.user_id = query_params.get("UserID", "Unknown")
+    self.label_output.text = http_get_dict.get('UserID', None)
 
-    # Display the UserID in a label or text area
-    self.label_output.text = f"User ID: {self.user_id}"
+    
+
+

@@ -19,7 +19,10 @@ db_schema:
     columns: []
     server: full
     title: Table 1
-dependencies: []
+dependencies:
+- dep_id: dep_n4e1y7a808yf4
+  resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
+  version: {version_tag: v3.1.0}
 name: M3 App 2
 package_name: M3_App_2
 renamed: true
@@ -35,4 +38,5 @@ services:
 - client_config: {}
   server_config: {file_table: files}
   source: /runtime/services/anvil/files.yml
-startup_form: Form1
+startup: {module: Init, type: form}
+startup_form: null

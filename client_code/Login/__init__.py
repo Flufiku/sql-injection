@@ -1,18 +1,16 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import LoginTemplate
 from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import anvil.routing
+from anvil_extras import routing
 import anvil.server
 
-
-class Form1(Form1Template):
+@routing.default_template
+@routing.route('')
+class Login(LoginTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    anvil.routing.set_url_hash("Form1")
-    # Any code you write here will run before the form opens.
 
   def button_login_click(self, **event_args):
     email_empty = self.text_box_email.text == ""
@@ -24,15 +22,16 @@ class Form1(Form1Template):
     password = self.text_box_password.text
     
     if email_has_semicolon or password_has_semicolon:
-      self.label_output.text = "; ist keine gültige Eingabe."
+      self.label_output.text = "; ist kein gültiges Zeichen."
     elif (not email_empty) and (not password_empty):
       try:
         acc_nums = anvil.server.call('get_account_number',email, password)
         if acc_nums == []:
           self.label_output.text = "E-Mail oder Passwort ist ungültig"
         else:
-          print(self.label_output.text)
-          anvil.routing.set_url_hash("User", query={"UserID": acc_nums[0][0]})
+          print(acc_nums)
+          UserID_Dict = {'UserID': acc_nums}
+          routing.set_url_hash(url_pattern='second', url_dict=UserID_Dict)
         #tom.wagner@gmail.com
         #8lZH5Ox#
       except Exception as e:

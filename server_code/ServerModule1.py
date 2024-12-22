@@ -19,12 +19,3 @@ def get_account_number(email, password):
   res = list(cursor.execute(f"SELECT UserID FROM User WHERE Email = '{email}' AND Password = '{password}'"))
   conn.close()
   return res
-
-
-
-@anvil.server.http_endpoint("/users", methods=["GET"])
-def get_data(**kwargs):
-    # Extract query parameters
-    UserID = kwargs.get("UserID")
-    
-    return 
