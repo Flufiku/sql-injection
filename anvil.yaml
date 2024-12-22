@@ -23,8 +23,8 @@ dependencies:
 - dep_id: dep_n4e1y7a808yf4
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {version_tag: v3.1.0}
-name: M3 App 2
-package_name: M3_App_2
+name: SQLI_Injection
+package_name: SQLI_Injection
 renamed: true
 runtime_options:
   client_version: '3'
