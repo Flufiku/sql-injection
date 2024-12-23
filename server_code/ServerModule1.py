@@ -34,7 +34,7 @@ def get_info(UserID):
   all_res = []
   for i in queries:
     res = list(cursor.execute(i + ";"))
-    print(''.join(i) + "\n" + ''.join(res))
+    print(f"{i}\n{res}")
     all_res += res
   conn.close()
   return res
