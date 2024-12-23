@@ -9,19 +9,20 @@ import sqlite3
 
 @anvil.server.callable
 def nuke_db():
-  database = anvil.files.open_file('database')
-  original_database = anvil.files.open_file('original_database')
+  database_path = "path/to/database"
+  original_database_path = "path/to/original_database"
   
-  if database is None or original_database is None:
-      raise ValueError("database or original_database not found")
-  
-  # Read the content of original_database
-  original_database_content = original_database.read()
-  
-  # Clear the contents of database
-  with anvil.files.write_file('database') as f:
-      f.truncate(0)  # Clear the file by truncating its size to 0
-  
-  # Write the contents of original_database to database
-  with anvil.files.write_file('database') as f:
-      f.write(original_database_content)
+  try:
+    # Open 'database' in write mode to clear its content
+    with open(database_path, 'wb') as database_file:
+      pass  # Opening in write mode ('w' or 'wb') clears the file
+
+    # Copy content from 'original_database' to 'database'
+    with open(original_database_path, 'rb') as original_file:
+      with open(database_path, 'wb') as database_file:
+        # Copy all data from original_database to database
+        database_file.write(original_file.read())
+    
+    print("Content copied successfully from 'original_database' to 'database'.")
+  except Exception as e:
+    print(f"An error occurred: {e}")
