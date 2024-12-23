@@ -8,4 +8,5 @@ from ..Error import Error
 class Init(InitTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+    anvil.server.call('nuke_db')
     open_form('Login')
