@@ -45,6 +45,6 @@ def get_info_secure(UserID):
   conn = sqlite3.connect(data_files['database.db'])
   cursor = conn.cursor()
   query = "SELECT Name, Balance FROM User WHERE UserID = ?"
-  res = list(cursor.execute(query, (UserID)))
+  res = list(cursor.execute(query, UserID))
   conn.close()
   return res
