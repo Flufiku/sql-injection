@@ -9,8 +9,8 @@ import sqlite3
 
 @anvil.server.callable
 def nuke_db():
-  database_path = "path/to/database"
-  original_database_path = "path/to/original_database"
+  database_path = data_files['database.db']
+  original_database_path = data_files['original_database.db']
   
   try:
     # Open 'database' in write mode to clear its content

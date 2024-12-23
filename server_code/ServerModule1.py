@@ -30,7 +30,12 @@ def get_UserID_secure(email, password):
 def get_info(UserID):
   conn = sqlite3.connect(data_files['database.db'])
   cursor = conn.cursor()
-  res = list(cursor.execute(f"SELECT Name, Balance FROM User WHERE UserID = '{UserID}'"))
+  queries = f"SELECT Name, Balance FROM User WHERE UserID = '{UserID}'".split(';')
+  all_res = []
+  for i in queries:
+    res = list(cursor.execute(i + ";"))
+    print(''.join(i) + "\n" + ''.join(res))
+    all_res += res
   conn.close()
   return res
 

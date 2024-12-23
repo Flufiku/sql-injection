@@ -20,7 +20,10 @@ class User(UserTemplate):
     else:
       UserInfo = anvil.server.call('get_info_secure', UserID)
 
-    self.label_output.text = f"Willkommen {UserInfo[0][0]}. Dein Kontostand beträgt {UserInfo[0][1]:2}€"
+    try:
+      self.label_output.text = f"Willkommen {UserInfo[0][0]}. Dein Kontostand beträgt {UserInfo[0][1]:2}€"
+    except:
+      self.label_output.text = "Kontostand konnte nicht ausgelesen werden. Versuchen Sie es später noch einmal."
 
   def image_logo_mouse_down(self, x, y, button, keys, **event_args):
     routing.set_url_hash(url_pattern='')
